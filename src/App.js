@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 
 const App = () => {
@@ -13,12 +13,11 @@ const App = () => {
   }, [text]);
 
   const calculateStats = () => {
-    // Unique word count (case-insensitive)
+
     const words = text.match(/\b\w+\b/g) || [];
     const uniqueWordsSet = new Set(words.map((word) => word.toLowerCase()));
     setUniqueWords(uniqueWordsSet.size);
 
-    // Character count excluding spaces and punctuation
     const chars = text.replace(/[\s.,\/#!$%\^&\*;:{}=\-_`~()]/g, "");
     setCharCount(chars.length);
   };
